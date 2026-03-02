@@ -1,0 +1,86 @@
+Aplicativo social de moda onde:
+Pessoas organizam seu guarda-roupa;
+Criam combinações (outfits);
+Postam fotos conceituais;
+Marcam poses;
+Vendem e trocam roupas;
+Negociam dentro da plataforma;
+Recebem reações.
+
+PRINCIPAIS MÓDULOS
+Usuário;
+Loja;
+Produto;
+Guarda-roupa;
+Outfit (combinação);
+Post social;
+Fotos conceituais;
+Pose;
+Carrinho;
+Pedido;
+Negociação;
+Troca;
+Reações;
+Comentários.
+
+
+Ele é uma plataforma que mistura:
+E-commerce de roupas
+Rede social de moda
+Organização de guarda-roupa
+Sistema de troca
+Fotos conceituais com poses estilo Pinterest / JoJo
+O objetivo foi criar um banco de dados normalizado (3FN) 
+pensando em PostgreSQL.
+
+Entidade: PESSOA
+Tabela principal do sistema, ela representa os usuários.
+Relacionamentos importantes:
+Uma pessoa pode ter várias lojas
+Uma pessoa pode ter vários produtos
+Uma pessoa pode criar vários outfits
+Uma pessoa pode fazer vários posts
+Uma pessoa pode reagir e comentar
+Uma pessoa pode realizar pedidos
+Uma pessoa pode negociar ou trocar
+É a entidade central do sistema.
+
+LOJA
+Uma pessoa pode ter várias lojas
+Uma loja pertence a apenas uma pessoa
+
+PRODUTO
+Pertencer a uma loja;
+Pertencer diretamente a uma pessoa (ex: venda pessoal);
+Uma loja vende vários produtos;
+Uma pessoa pode possuir vários produtos.
+
+GUARDA-ROUPA
+Uma pessoa pode criar vários guarda-roupas (ex: verão, inverno, academia).
+ITEM_GUARDA_ROUPA
+Resolve relacionamento N:N entre:
+Guarda-roupa
+Produto
+
+OUTFIT (Combinação de roupas)
+Um outfit é uma combinação de roupas.
+ITEM_OUTFIT
+Resolve N:N entre:
+Outfit
+Produto
+Porque:
+Um outfit tem vários produtos
+Um produto pode estar em vários outfits
+
+POST
+Um post é uma publicação.
+Pode referenciar:
+Um outfit
+
+FOTO
+Um post pode ter várias fotos.
+Possui:
+url_imagem
+conceitual (boolean)
+estilo
+
